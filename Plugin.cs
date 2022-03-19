@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Exiled.API;
 using Exiled.API.Features;
 using Exiled.Events.Handlers;
+using Player = Exiled.Events.Handlers.Player;
 
 namespace elevatorControl
 {
@@ -15,6 +16,8 @@ namespace elevatorControl
         public override string Name { get; } = "elevatorControl";
         public override Version Version { get; } = new Version(0, 0, 1);
         public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
+
+        public EventHandlers EventHandler;
 
         public override void OnEnabled()
         {
@@ -30,12 +33,14 @@ namespace elevatorControl
 
         private void RegisterEvents()
         {
-
+            EventHandler = new EventHandlers(this);
+            Player.InteractingElevator += EventHandler.InteractingElevator;
         }
 
         private void UnRegisterEvents()
         {
-
+            Player.InteractingElevator -= EventHandler.InteractingElevator;
+            EventHandler = null;
         }
     }
 }
