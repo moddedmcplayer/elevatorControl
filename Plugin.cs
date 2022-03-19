@@ -14,7 +14,7 @@ namespace elevatorControl
     {
         public override string Author { get; } = "moddedmcplayer";
         public override string Name { get; } = "elevatorControl";
-        public override Version Version { get; } = new Version(0, 0, 1);
+        public override Version Version { get; } = new Version(0, 1, 0);
         public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
 
         public EventHandlers EventHandler;

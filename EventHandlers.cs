@@ -18,7 +18,7 @@ namespace elevatorControl
 
         public void InteractingElevator(InteractingElevatorEventArgs ev)
         {
-            ev.Lift.movingSpeed = cfg.ElevatorTime;
+            ev.Lift.MovingSpeed = cfg.ElevatorTime;
         }
     }
 }
